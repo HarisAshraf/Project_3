@@ -120,15 +120,18 @@ class Trackmanagement:
             track = self.track_list[i]
             # check visibility    
             if meas_list: # if not empty
-                if meas_list[0].sensor.in_fov(track.x):
+                if not meas_list[0].sensor.in_fov(track.x):   # added "not" as per Mentor help board
                     track.score -= self.score_step
 
         # delete old tracks   
         for track in self.track_list:
-            if (track.state == 'confirmed' and track.score <= params.delete_threshold) \
-               or ((track.state == 'initialized' or track.state == 'tentative')
-               and (track.P[0, 0] > params.max_P or track.P[1, 1] > params.max_P)):
-                self.delete_track(track)
+           if track.P[0, 0] > params.max_P or track.P[1, 1] > params.max_P:
+               self.delete_track(track)
+           elif track.state == 'confirmed' and track.score <= params.delete_threshold:
+               self.delete_track(track)
+           #elif (track.state == 'initialized' or track.state == 'tentative') and track.score < params.low_threshhold:
+              # self.delete_track(track)
+            
 
         ############
         # END student code

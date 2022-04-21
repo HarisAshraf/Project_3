@@ -66,7 +66,7 @@ class Filter:
 
     def predict(self, track):
         ############
-        # Step 1: predict state x and estimation error covariance P to next timestep, save x and P in track
+        # Step 1: Predict state x and estimation error covariance P to next timestep, save x and P in track
         ############
         
         x = track.x
@@ -84,7 +84,7 @@ class Filter:
 
     def update(self, track, meas):
         ############
-        # TODO Step 1: update state x and covariance P with associated measurement, save x and P in track
+        # Step 1: Update state x and covariance P with associated measurement, save x and P in track
         ############
        
         x = track.x
@@ -113,7 +113,7 @@ class Filter:
 
     def S(self, track, meas, H):
         ############
-        # TODO Step 1: calculate and return covariance of residual S
+        # Step 1: calculate and return covariance of residual S
         ############
 
         return H*track.P*H.transpose() + meas.R

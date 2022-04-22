@@ -121,7 +121,7 @@ class Association:
         H = meas.sensor.get_H(track.x)
         S = H*track.P*H.transpose() + meas.R
         gamma = meas.z - H*track.x 
-        MHD = gamma.transpose()*np.linalg.inv(S)*gamma
+        MHD = np.sqrt(gamma.transpose()*np.linalg.inv(S)*gamma)
         print ("MHD = ", MHD)
         return MHD
         

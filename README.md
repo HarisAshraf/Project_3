@@ -1,7 +1,7 @@
 # Project_3
 Final project in Sensor Fusion section
 
-This submittal assumes that the user will be using the Udacity provided workspsace. The following files have been updated.
+This submittal assumes that the user will be using the Udacity provided workspsace. The following files have been updated and should be copied in their respective folders.
 
 
 ┣ 📂results
